@@ -1,7 +1,7 @@
 import 'normalize.css';
 import './app.css';
 
-import CsvParse from 'csv-parse';
+import { parse } from 'csv-parse/browser/esm';
 import qs from 'qs';
 
 const CELL_LIMIT = 500000;
@@ -39,7 +39,7 @@ async function main () {
         }
         const reader = response.body.getReader();
 
-        const parser = CsvParse({
+        const parser = parse({
             delimiter: ';',
             bom: true,
             relax_column_count: true,
